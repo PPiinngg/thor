@@ -1,0 +1,3 @@
+# Thor
+
+WIP plugin framework
