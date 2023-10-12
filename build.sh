@@ -1,4 +1,7 @@
-odin build test-plugin -build-mode:dll
-mv ./test-plugin.so ./test-plugin.clap
+PLUGINNAME="test-plugin"
 
-clap-validator -v trace validate ./test-plugin.clap
+rm *.clap
+odin build src -build-mode:dll
+mv ./src.so ./$PLUGINNAME.clap
+
+clap-validator -v trace validate ./$PLUGINNAME.clap
