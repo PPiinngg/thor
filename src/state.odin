@@ -1,7 +1,7 @@
 package test_plugin
 
-import clap "../clap"
-import ext "../clap/ext"
+import clap "../clap-odin"
+import ext "../clap-odin/ext"
 
 State :: struct {
     plugin:            clap.Plugin,

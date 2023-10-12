@@ -1,6 +1,6 @@
 package test_plugin
 
-import clap "../clap"
+import clap "../clap-odin"
 
 AUDIO_INPUTS  :: 1
 AUDIO_OUTPUTS :: 1

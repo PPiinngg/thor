@@ -1,0 +1,3 @@
+[submodule "clap-odin"]
+	path = clap-odin
+	url = https://github.com/PPiinngg/clap-odin.git

@@ -1,7 +1,7 @@
 package test_plugin
 
 import "core:runtime"
-import clap "../clap"
+import clap "../clap-odin"
 
 @export clap_entry := clap.Plugin_Entry{
     clap_version = clap.CLAP_VERSION,

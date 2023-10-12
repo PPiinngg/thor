@@ -1,8 +1,8 @@
 package test_plugin
 
 import libc "core:c/libc"
-import clap "../clap"
-import ext "../clap/ext"
+import clap "../clap-odin"
+import ext "../clap-odin/ext"
 
 get_extension :: proc "c" (plugin: ^clap.Plugin, id: cstring) -> rawptr {
     switch id {
