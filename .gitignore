@@ -1,1 +1,9 @@
+# Build artifacts
 *.clap
+*.pdb
+*.exp
+*.lib
+
+# Misc.
+ols.json
+clap-validator.exe
