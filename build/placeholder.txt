@@ -1,0 +1,10 @@
+hello! i'm here so git actually acknowledges that this directory exists.
+have a kitty
+
+    /\_____/\
+   /  o   o  \
+  ( ==  ^  == )
+   )         (
+  /           \
+ / |  |   |  | \
+(__(__)___(__)__)
