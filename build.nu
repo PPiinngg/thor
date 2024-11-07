@@ -4,6 +4,6 @@ with-env {
 } {
     let plugin_path = $env.THOR_BUILD_PATH + $env.THOR_PLUGIN_NAME + ".clap"
     mkdir $env.THOR_BUILD_PATH
-    odin build src -build-mode:dll -out:($plugin_path)
+    odin build src -o:aggressive -build-mode:dll -out:($plugin_path)
     clap-validator -v trace validate ($plugin_path)
 }
