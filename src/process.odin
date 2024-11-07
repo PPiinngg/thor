@@ -1,6 +1,7 @@
 package test_plugin
 
 import "base:runtime"
+import "core:fmt"
 import clap "../clap-odin"
 
 start_processing :: proc "c" (plugin: ^clap.Plugin) -> bool {
@@ -11,32 +12,29 @@ stop_processing :: proc "c" (plugin: ^clap.Plugin) {}
 
 reset :: proc "c" (plugin: ^clap.Plugin) {}
 
-process :: proc (process: ^clap.Process, i_buf, o_buf: ^[^][^]f32) {
-	c_n := process.audio_inputs[0].channel_count
-	fr_n := process.frames_count
-
-	for c_i in 0..<c_n {
-		o_ch := o_buf[c_i] 
-		i_ch := i_buf[c_i]
-
-		for fr_i in 0..<fr_n {
-			o_ch[fr_i] = i_ch[fr_i]
-		}
-	}
-}
-
-init_process :: proc "c" (plugin: ^clap.Plugin, clap_process: ^clap.Process) -> clap.Process_Status {
+process :: proc "c" (plugin: ^clap.Plugin, clap_process: ^clap.Process) -> clap.Process_Status {
 	context = runtime.default_context()
 
     main_in := clap_process.audio_inputs[0]
     main_out := clap_process.audio_outputs[0]
 
-	ch_c := clap_process.audio_inputs[0].channel_count
-	frm_c := clap_process.frames_count
-
-    if clap_process.audio_outputs[0].data32 != nil {
-		process(clap_process, &main_in.data32, &main_out.data32)
+    // Error if no f32 buffer exists
+    if main_out.data32 == nil {
+        return clap.Process_Status.ERROR
     }
+
+    // PROCESS LOOP
+	ch_n := main_out.channel_count
+	frm_n := clap_process.frames_count
+
+    for ch_idx in 0..<ch_n {
+		out_ch := main_out.data32[ch_idx]
+		in_ch := main_in.data32[ch_idx]
+
+		for frm_idx in 0..<frm_n {
+			out_ch[frm_idx] = in_ch[frm_idx]
+		}
+	}
 
     return clap.Process_Status.CONTINUE
 }
