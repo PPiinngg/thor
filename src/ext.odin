@@ -1,4 +1,4 @@
-package test_plugin
+package plugin
 
 import libc "core:c/libc"
 import clap "../clap-odin"
