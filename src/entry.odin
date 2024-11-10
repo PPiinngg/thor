@@ -1,4 +1,4 @@
-package test_plugin
+package plugin
 
 import "base:runtime"
 import clap "../clap-odin"

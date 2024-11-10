@@ -1,4 +1,4 @@
-package test_plugin
+package plugin
 
 import clap "../clap-odin"
 import ext "../clap-odin/ext"
