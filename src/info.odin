@@ -5,6 +5,9 @@ import clap "../clap-odin"
 AUDIO_INPUTS  :: 1
 AUDIO_OUTPUTS :: 1
 
+NOTE_INPUTS  :: 0
+NOTE_OUTPUTS :: 0
+
 descriptor := clap.Plugin_Descriptor{
 	clap_version = clap.CLAP_VERSION,
 	id          = "dev.clap-odin.test",
