@@ -4,7 +4,7 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "build",
+      "label": "Build",
       "type": "shell",
       "command": "odin build src -o:none -debug -build-mode:dll -out:build/vscode-debugging-build.clap",
       "group": "build"
